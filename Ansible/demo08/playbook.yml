@@ -1,0 +1,69 @@
+---
+- name: Update en webservers opzetten met een website van github
+  hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  pre_tasks:
+
+    - name: Distribution
+      debug: msg="{{ ansible_distribution }}"
+    - name: Distribution version
+      debug: msg="{{ ansible_distribution_version}}"
+    - name: Distribution major version
+      debug: msg="{{ ansible_distribution_major_version }}"
+
+    - name: installeer updates op een RedHat Server
+      tags: always
+      ansible.builtin.dnf:
+        update_only: yes
+        update_cache: yes
+      when: ansible_distribution == "RedHat"
+
+    - name: installeer updates op een Ubuntu Server
+      tags: always
+      ansible.builtin.apt:
+        upgrade: dist
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+
+  tasks:
+    - name: nmap en whatweb installeren op al onze servers.
+      ansible.builtin.package:
+        name:
+          - nmap
+          - whatweb
+
+- name: Install the latest version of Apache and MariaDB
+  hosts: web
+  become: yes
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - name: git en nginx installeren op web-servers.
+      ansible.builtin.package:
+        name:
+          - git
+          - nginx
+        state: present
+
+    - name: Verwijderen bestaande website
+      ansible.builtin.file:
+        path: /var/www/html
+        state: directory
+        state: absent
+
+    - name: Git website installeren
+      ansible.builtin.git:
+        repo: https://github.com/BartTho/website.git
+        dest: /var/www/html
+
+    - name: Recursief eigenaar installen van de folder
+      ansible.builtin.file:
+        path: /var/www/html
+        state: directory
+        recurse: yes
+        owner: www-data
+        group: www-data
+        mode: '0644'
