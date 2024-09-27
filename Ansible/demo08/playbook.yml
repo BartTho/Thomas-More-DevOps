@@ -18,7 +18,7 @@
       ansible.builtin.dnf:
         update_only: yes
         update_cache: yes
-      when: ansible_distribution == "RedHat"
+      when: ansible_distribution == "Rocky"
 
     - name: installeer updates op een Ubuntu Server
       tags: always
