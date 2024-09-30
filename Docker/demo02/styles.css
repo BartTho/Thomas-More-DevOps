@@ -22,7 +22,7 @@ h1 {
   font-size: 4rem;
   line-height: 4rem;
   letter-spacing: 0.8rem;
-  background: linear-gradient(295deg, rgba(2,0,36,1) 0%, rgba(76,121,127,1) 0%, rgba(240,76,37,1) 42%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(295deg, rgb(131, 214, 163) 0%, rgba(76,121,127,1) 0%, rgba(240,76,37,1) 42%, rgba(0,212,255,1) 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
