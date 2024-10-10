@@ -1,8 +1,5 @@
-
-#Mijn eerste docker bestand
-#we laden het base images ubuntu
-#FROM ubuntu:latest
-#FROM alpine:latest
+#We laden het base images ubuntu
+FROM ubuntu:latest
 
 #We definieren enkele labels
 LABEL version="0.0.1"
