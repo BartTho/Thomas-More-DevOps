@@ -14,7 +14,9 @@ sudo chown bart:bart /var/jenkins_home
 container starten en gebruiker die rechten heeft op /var/jenkins_home meegeven.
 
 docker run -d --name jenkins-docker -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --restart=on-failure jenkins/jenkins:lts-jdk17
-docker exec -it jenkins-docker /bin/bash
-cd /var/jenkins_home/secrets
-cat initialAdminPassword
 
+docker exec -it jenkins-docker /bin/bash
+
+cd /var/jenkins_home/secrets
+
+cat initialAdminPassword
