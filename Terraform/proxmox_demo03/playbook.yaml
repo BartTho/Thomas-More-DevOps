@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Install
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #1 dag
+  - name: Install
+    ansible.builtin.package:
+      name:
+        - nmap
+        - inetutils-ping
+        - iftop
+      state: latest
+  - name: Reboot machine and send a message
+    ansible.builtin.reboot:
+      msg: "Rebooting machine in 5 seconds"
