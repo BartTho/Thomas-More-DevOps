@@ -8,10 +8,3 @@ Doe dit op alle servers die je wil beheren met ansible.
 Op Alle Servers ook de Controller (DevOps)
 •	sudo useradd -m -G sudo -s /bin/bash ansible
 •	sudo passwd ansible
-
-Op Controller 
-•	su - ansible
-•	ssh-keygen
-•	ssh-copy-id ansible@ansible1 (IP-ADDRESS)
-•	ssh-copy-id ansible@ansible2 (IP-ADDRESS)
-•	ssh-copy-id ansible@ansible3 (IP-ADDRESS)
