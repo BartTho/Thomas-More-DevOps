@@ -1,6 +1,6 @@
 # Cursus DevOps – Deel Ansible
 
-##Voorbereiding installatie
+## Voorbereiding installatie
 
 ### Ansible Controller
 Als Controller voor Ansible gebruiken we onze DevOps-server.
