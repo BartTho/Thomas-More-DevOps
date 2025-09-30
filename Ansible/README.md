@@ -45,38 +45,38 @@ Debian/Ubuntu:
 
 BESTAND /etc/ansible/hosts
 
-  [groen]
-  IP SERVER 1
-  IP SERVER 2
+  [groen]  
+  IP SERVER 1  
+  IP SERVER 2  
   
-  [blauw]
-  IP SERVER 3
+  [blauw]  
+  IP SERVER 3  
   
-  [all:vars]
-  ansible_connection=ssh
-  ansible_user=ansible
-  ansible_ssh_pass=Top.Secret
+  [all:vars]  
+  ansible_connection=ssh  
+  ansible_user=ansible  
+  ansible_ssh_pass=Top.Secret  
 
 ### Python3 waarschuwing
 
 Wanneer er een waarschuwing verschijnt met betrekking tot Python, kan dit worden opgelost door de volgende regel toe te voegen in /etc/ansible/hosts:
 
-  [all:vars]
-    ansible_connection=ssh
-    ansible_user=ansible
-    ansible_ssh_pass=Top.Secret
-    ansible_python_interpreter=/usr/bin/python3
+  [all:vars]  
+    ansible_connection=ssh  
+    ansible_user=ansible  
+    ansible_ssh_pass=Top.Secret  
+    ansible_python_interpreter=/usr/bin/python3  
     
 ### Als je admin rechten nodig hebt in een ansible script. 
 
-Aanpassen : /etc/ansible/hosts
-  [all:vars]
-    ansible_connection=ssh
-    ansible_user=ansible
-    ansible_ssh_pass=Top.Secret
-    ansible_become_password=Top.Secret
-    ansible_python_interpreter=/usr/bin/python3
-    ansible_become_password=Top.Secret
+Aanpassen : /etc/ansible/hosts  
+  [all:vars]  
+    ansible_connection=ssh  
+    ansible_user=ansible  
+    ansible_ssh_pass=Top.Secret  
+    ansible_become_password=Top.Secret  
+    ansible_python_interpreter=/usr/bin/python3  
+    ansible_become_password=Top.Secret  
 
 In het playbook : toevoegen van become: yes
 
@@ -85,20 +85,20 @@ In het playbook : toevoegen van become: yes
 Om de verbindingen te beveiligen, maken we gebruik van een SSH-sleutel in plaats van wachtwoorden.
 
 ### Op Controller 
-•	su - ansible
-•	ssh-keygen
-•	ssh-copy-id ansible@ansible1 (IP-ADDRESS)
-•	ssh-copy-id ansible@ansible2 (IP-ADDRESS)
-•	ssh-copy-id ansible@ansible3 (IP-ADDRESS)
+•	su - ansible  
+•	ssh-keygen  
+•	ssh-copy-id ansible@ansible1 (IP-ADDRESS)  
+•	ssh-copy-id ansible@ansible2 (IP-ADDRESS)  
+•	ssh-copy-id ansible@ansible3 (IP-ADDRESS)  
 
 ### /etc/ansible/hosts
 
 Om ervoor te zorgen dat Ansible deze sleutel gebruikt, voegen we de juiste instellingen toe in het bestand /etc/ansible/hosts.
-  [all:vars]
-    ansible_connection=ssh
-    ansible_user=ansible
-    ansible_ssh_pass=Top.Secret
-    # ansible_become_password=Top.Secret  -> deze regel mag wag of we maken er commentaar van door # ervoor te zetten.
-    ansible_private_key_file=/home/ansible/.ssh/id_ed25519
-    ansible_python_interpreter=/usr/bin/python3
-    ansible_become_password=Top.Secret
+  [all:vars]  
+    ansible_connection=ssh  
+    ansible_user=ansible  
+    ansible_ssh_pass=Top.Secret  
+    # ansible_become_password=Top.Secret  -> deze regel mag wag of we maken er commentaar van door # ervoor te zetten.  
+    ansible_private_key_file=/home/ansible/.ssh/id_ed25519  
+    ansible_python_interpreter=/usr/bin/python3  
+    ansible_become_password=Top.Secret  
