@@ -31,13 +31,13 @@ Gebruiker aanmaken (op alle servers, inclusief de Controller/DevOps-server)
 
 ### Ansible installeren we uitsluitend op de Controller (DevOps-server).
 
-De installatie gebeurt met behulp van het pakketbeheersysteem:
-Debian/Ubuntu: 
-   sudo apt update && sudo apt upgrade -y
-   sudo apt install software-properties-common
-   sudo add-apt-repository --yes --update ppa:ansible/ansible
-   sudo apt update
-   sudo apt install ansible
+De installatie gebeurt met behulp van het pakketbeheersysteem:  
+Debian/Ubuntu:   
+   sudo apt update && sudo apt upgrade -y  
+   sudo apt install software-properties-common  
+   sudo add-apt-repository --yes --update ppa:ansible/ansible  
+   sudo apt update  
+   sudo apt install ansible  
 
 ## Configuratiebestand aanpassen
 
