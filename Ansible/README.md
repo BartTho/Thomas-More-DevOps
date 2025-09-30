@@ -9,10 +9,10 @@ Om snel meerdere servers beschikbaar te maken, maken we linked clones.
 Na het klonen stellen we op elke server de hostnaam in en passen we de machine-id aan.
 Deze stappen voeren we uit op alle servers die we willen beheren.
 
-•	sudo hostnamectl set-hostname ansible1
-•	sudo nano /etc/hosts
-•	sudo rm /etc/machine-id
-•	sudo systemd-machine-id-setup
+- sudo hostnamectl set-hostname ansible1
+- sudo nano /etc/hosts
+- sudo rm /etc/machine-id
+- sudo systemd-machine-id-setup
 
 
 ### Aanmaken gebruiker en installatie Ansible
@@ -24,15 +24,15 @@ zodat hij opdrachten met administratorrechten kan uitvoeren, zoals het installer
 
 Gebruiker aanmaken (op alle servers, inclusief de Controller/DevOps-server)
 
-•	sudo useradd -m -G sudo -s /bin/bash ansible
-•	sudo passwd ansible
+- sudo useradd -m -G sudo -s /bin/bash ansible
+- sudo passwd ansible
 
 ## Installatie van Ansible
 
 ### Ansible installeren we uitsluitend op de Controller (DevOps-server).
 
 De installatie gebeurt met behulp van het pakketbeheersysteem:
-	•	Debian/Ubuntu: 
+    - Debian/Ubuntu: 
       sudo apt update && sudo apt upgrade -y
       sudo apt install software-properties-common
       sudo add-apt-repository --yes --update ppa:ansible/ansible
