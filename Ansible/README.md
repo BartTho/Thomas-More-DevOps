@@ -113,19 +113,18 @@ Om ervoor te zorgen dat Ansible deze sleutel gebruikt, voegen we de juiste inste
 Voor betere veiligheid kan je jou paswoorden en gevoelige data incripteren via Ansible Vault:
 
 Maak een geincrpteerd bestand aan:  
-
-   ansible-vault create secrets.yml  
+- ansible-vault create secrets.yml
 
 Voeg je gebruiker en paswoord toe:
 
-   ansible_user: ansible
-   ansible_password: Top.Secret
+- ansible_user: ansible
+- ansible_password: Top.Secret
 
 Refereer naar deze bruiker in ons playbook.yaml
 
-   vars_files:
-      - secrets.yml
+   vars_files:  
+      - secrets.yml  
 
 Voer het playbook nu uit, het maakt nu gebruik van de kluis.
 
-ansible-playbook myplaybook.yml --ask-vault-pass  
+- ansible-playbook myplaybook.yml --ask-vault-pass
