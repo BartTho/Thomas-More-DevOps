@@ -1,3 +1,10 @@
+Op Controller 
+•	su - ansible
+•	ssh-keygen
+•	ssh-copy-id ansible@ansible1 (IP-ADDRESS)
+•	ssh-copy-id ansible@ansible2 (IP-ADDRESS)
+•	ssh-copy-id ansible@ansible3 (IP-ADDRESS)
+
 /etc/ansible/hosts
 
 [all:vars]
