@@ -12,5 +12,11 @@ Start | Computer management | Grebruikers en groepen |
 -	ansible toevoegen aan groepen Administrators en “Open ssh users”
 Een folder c:tmp aan maken en authenticated users full control geven.
 
+### Testen
+ansible windows -i hosts -m ansible.windows.win_ping
+ansible windows -vvv -i hosts -m ansible.windows.win_ping
+
 ## Playbook runnen
 ansible-playbook -i hosts playbook.yaml
+ansible-playbook -i hosts playbook.yaml
+ansible-playbook -vvv -i hosts playbook.yaml
