@@ -9,7 +9,7 @@ ansible-playbook -i hosts -e @vars/mijn_kluis.yml playbook2.yaml --ask-vault-pas
 ## Encrypting the vault with base64 generated password
 
 1) genereer willekeurig paswoord  
-penssl rand -base64 2048 > ansible-vault.pass
+openssl rand -base64 2048 > ansible-vault.pass
 
 2) Maak een nieuwe kluis ùet dat paswoord  
 ansible-vault create vars/mijn_kluis2.yml --vault-password-file=ansible-vault.pass
