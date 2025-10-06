@@ -1,0 +1,9 @@
+[windows]
+IP-ADRES
+
+[all:vars]
+ansible_connection=ssh
+ansible_shell_type=powershell
+ansible_user = ansible
+ansible_password = {{mijn_paswoord}}
+ansible_python_interpreter=c:\Python\python
