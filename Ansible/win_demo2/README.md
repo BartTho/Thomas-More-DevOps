@@ -17,7 +17,7 @@ ansible-vault create vars/mijn_kluis2.yml --vault-password-file=ansible-vault.pa
 
 
 3) Bekijk de inhoud met het super pâswoord  
-ansible-vault view vars/mijn_kluis2.yml --vault-password-file=ansible-vault.pa
+ansible-vault view vars/mijn_kluis2.yml --vault-password-file=ansible-vault.pass
 
 4) Gebruik het paswoord bestand bij ansible playbook  
-ansible-playbook -i hosts playbook2.yml -e @vars/mijn_kluis.yml --vault-password-file=ansible-vault.pass
+ansible-playbook -i hosts playbook2.yaml -e @vars/mijn_kluis2.yml --vault-password-file=ansible-vault.pass
