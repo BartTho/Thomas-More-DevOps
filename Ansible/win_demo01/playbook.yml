@@ -1,0 +1,17 @@
+---
+- name: Update web servers
+  hosts: windows
+
+  tasks:
+  - name: We maken gebruiker Bart aan als die nog niet bestaat
+    win_user:
+      name: bart
+      password: Top.Secret
+      state: present
+      groups:
+         - Users
+
+  - name: Copy a single file
+    win_copy:
+      src: bestand.txt
+      dest: C:\tmp\
