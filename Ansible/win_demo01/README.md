@@ -7,10 +7,13 @@ In de server manager | Local host | Remote ssh access -> enable
 
 ###Windows Server user ansible en groep Open ssh 
 
-Start | Computer management | Grebruikers en groepen | 
+Start | Computer management | Gebruikers en groepen | 
 -	gebruiker : ansible | stel paswoord in
 -	ansible toevoegen aan groepen Administrators en “Open ssh users”
 Een folder c:tmp aan maken en authenticated users full control geven.
+
+### Firewall en ssh
+- Zet de poort 22 open in de Windows Server firewall om ssh toe te laten.
 
 ### Testen
 ansible windows -i hosts -m ansible.windows.win_ping
