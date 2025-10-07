@@ -15,3 +15,13 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin   docker-compose-plugin  
 sudo systemctl status docker  
 sudo systemctl start docker  
+
+# Zonder docker uitvoeren zonder sudo 
+
+Voeg jou gebruiker toe aan de groep Docker:
+sudo gpasswd -a $USER docker
+
+Log uit en terug in zodat je lid bent van de groep.
+Tenslotte herstart het Docker proces.
+
+sudo systemctl restart docker
