@@ -26,6 +26,8 @@ Tenslotte herstart het Docker proces.
 sudo systemctl restart docker
 
 # Docker Commando's
+docker version
+
 docker pull httpd
 docker images
 docker run httpd -> zelfde als latest
