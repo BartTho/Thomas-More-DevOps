@@ -1,5 +1,5 @@
 Alle Servers behalve de controller (DevOps Server)
-``` 
+
 sudo hostnamectl set-hostname ansible1
 sudo nano /etc/hosts
 sudo rm /etc/machine-id
