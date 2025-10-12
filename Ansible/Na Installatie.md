@@ -1,5 +1,5 @@
 BESTAND /etc/ansible/hosts
-
+``` 
 [groen]
 IP SERVER 1
 IP SERVER 2
@@ -13,3 +13,4 @@ ansible_user=ansible
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_pass=Top.Secret
 ansible_become_password=Top.Secret
+``` 
