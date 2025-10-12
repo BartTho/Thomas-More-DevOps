@@ -27,7 +27,7 @@ sudo systemctl start docker
 
 Voeg jou gebruiker toe aan de groep Docker:
 ```
-sudo gpasswd -a $USER docker
+sudo usermod -aG docker $USER
 ``` 
 
 Log uit en terug in zodat je lid bent van de groep.
