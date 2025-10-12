@@ -1,15 +1,17 @@
 Op Controller 
-•	su - ansible
-•	ssh-keygen
-•	ssh-copy-id ansible@ansible1 (IP-ADDRESS)
-•	ssh-copy-id ansible@ansible2 (IP-ADDRESS)
-•	ssh-copy-id ansible@ansible3 (IP-ADDRESS)
-
+```
+su - ansible
+ssh-keygen
+ssh-copy-id ansible@ansible1 (IP-ADDRESS)
+ssh-copy-id ansible@ansible2 (IP-ADDRESS)
+ssh-copy-id ansible@ansible3 (IP-ADDRESS)
+``` 
 /etc/ansible/hosts
-
+``` 
 [all:vars]
 ansible_connection=ssh
 ansible_user=ansible
 ansible_python_interpreter=/usr/bin/python3
 ansible_private_key_file=/home/ansible/.ssh/id_ed25519
 ansible_become_password=Top.Secret
+``` 
