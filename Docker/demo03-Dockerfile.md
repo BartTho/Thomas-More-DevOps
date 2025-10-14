@@ -32,3 +32,21 @@ Standaard wordt de RUN-instructie uitgevoerd in een shell met behulp van de comm
 Vervolgens hebben we de EXPOSE-instructie gespecificeerd, die Docker vertelt dat de applicatie in deze container deze specifieke poort op de container zal gebruiken. Dit betekent niet dat je automatisch toegang hebt tot de service die op die poort (in dit geval poort 80) op de container draait. Om beveiligingsredenen opent Docker de poort niet automatisch, maar wacht tot je dit doet wanneer je de container uitvoert met de opdracht docker run. 
 We zullen dit zo zien wanneer we een nieuwe container aanmaken vanuit deze image.
 Je kunt meerdere EXPOSE-instructies opgeven om meerdere poorten te markeren die moeten worden blootgesteld.
+
+## Maken van het image
+### docker build
+We gebruiken de opdracht docker build om onze nieuwe image te bouwen.
+
+```
+docker build -t="barttho/demo-image" .
+```
+
+### optie -t
+We hebben de optie -t opgegeven om onze resulterende image te markeren met een repository en een naam, in dit geval de repository barttho en de imagenaam demo-image. 
+
+Ik raad je sterk aan om je images altijd een naam te geven om ze gemakkelijker te kunnen volgen en beheren.
+Je kunt images ook tijdens het bouwproces taggen door de tag na de imagenaam te plaatsen met een dubbele punt.
+
+```
+sudo docker build -t="jamtur01/static_web:v1" .
+```
