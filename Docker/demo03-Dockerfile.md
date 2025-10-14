@@ -4,7 +4,7 @@
 FROM ubuntu:24.04
 LABEL version="0.0.1"
 LABEL maintainer="bart.thonissen@thomasmore.be"
-ENV FOO=/bar
+ENV REFRESHED_AT 2025-10-10
 RUN echo 'we are running some # of cool things'
 RUN apt update && apt install -y nginx
 RUN echo 'Hi, I am in your container' >/usr/share/nginx/html/index.html
@@ -24,6 +24,9 @@ Net als bij het uitvoeren van een container, moet u altijd specifiek zijn over w
 
 ### LABEL
 Vervolgens hebben we de LABEL-instructie gespecificeerd, die Docker vertelt wie de auteur van de image is en wat hun e-mailadres is. Dit is handig om een eigenaar en contactpersoon voor een image op te geven.
+
+### ENV
+De ENV-instructie stelt omgevingsvariabelen in. In dit geval heb ik de ENV-instructie opgegeven om een ​​omgevingsvariabele genaamd REFRESHED_AT in te stellen, die aangeeft wanneer de sjabloon voor het laatst is bijgewerkt. Ten slotte heb ik de opdracht apt update opgegeven in een RUN-instructie. Dit ververst de APT-pakketcache wanneer deze wordt uitgevoerd, zodat de nieuwste pakketten beschikbaar zijn om te installeren.
 
 ### RUN
 De RUN-instructie voert opdrachten uit op de huidige image. De opdrachten in ons voorbeeld: het bijwerken van de geïnstalleerde APT-repositories en het installeren van het nginx-pakket en vervolgens
