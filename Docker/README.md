@@ -23,7 +23,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo systemctl status docker  
 sudo systemctl start docker  
 ```
-# Zonder docker uitvoeren zonder sudo 
+# Docker uitvoeren zonder sudo 
 
 Voeg jou gebruiker toe aan de groep Docker:
 ```
