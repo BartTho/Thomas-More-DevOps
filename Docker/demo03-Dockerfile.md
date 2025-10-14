@@ -2,7 +2,10 @@
 ## Voorbeeld
 ```
 FROM ubuntu:24.04
-MAINTAINER Bart Thonissen "bart.thonissen@thomasmore.be"
+LABEL version="0.0.1"
+LABEL maintainer="bart.thonissen@thomasmore.be"
+ENV FOO=/bar
+RUN echo 'we are running some # of cool things'
 RUN apt update && apt install -y nginx
 RUN echo 'Hi, I am in your container' >/usr/share/nginx/html/index.html
 EXPOSE 80
@@ -19,9 +22,8 @@ In ons voorbeeld Dockerfile hebben we de ubuntu:24.04-image gespecificeerd als o
 Deze specificatie bouwt een image op een Ubuntu 24.04 basisbesturingssysteem. 
 Net als bij het uitvoeren van een container, moet u altijd specifiek zijn over welke basisimage u precies bouwt.
 
-### MAINTAINER
-Vervolgens hebben we de MAINTAINER-instructie gespecificeerd, die Docker vertelt wie de auteur van de image is en wat hun e-mailadres is. Dit is handig om
-een eigenaar en contactpersoon voor een image op te geven.
+### LABEL
+Vervolgens hebben we de LABEL-instructie gespecificeerd, die Docker vertelt wie de auteur van de image is en wat hun e-mailadres is. Dit is handig om een eigenaar en contactpersoon voor een image op te geven.
 
 ### RUN
 De RUN-instructie voert opdrachten uit op de huidige image. De opdrachten in ons voorbeeld: het bijwerken van de geïnstalleerde APT-repositories en het installeren van het nginx-pakket en vervolgens
