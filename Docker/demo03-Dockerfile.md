@@ -48,5 +48,5 @@ Ik raad je sterk aan om je images altijd een naam te geven om ze gemakkelijker t
 Je kunt images ook tijdens het bouwproces taggen door de tag na de imagenaam te plaatsen met een dubbele punt.
 
 ```
-sudo docker build -t="jamtur01/static_web:v1" .
+sudo docker build -t="barttho/demo-image:v1" .
 ```
