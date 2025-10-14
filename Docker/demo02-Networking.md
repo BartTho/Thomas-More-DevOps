@@ -41,5 +41,6 @@ docker run -itd --rm --network mijn_bridge --name marge busybox
 # 4-IPvlan
 ```
 docker network create -d ipvlan --subnet 192.168.3.0/24 --gateway 192.168.3.1 -o parent=ens33 nieuwe_lan
+docker inspect nieuwe_lan
 docker network ls
 ```
