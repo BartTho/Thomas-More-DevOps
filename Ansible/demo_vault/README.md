@@ -53,17 +53,18 @@ ansible-playbook -i hosts -e @vars/mijn_kluis.yml playbook2.yaml --ask-vault-pas
 
 1) genereer willekeurig paswoord  
 ```
-openssl rand -base64 2048 > vars/mijn_paswoord.pass
+openssl rand -base64 2048 > vars/mijn_sterk_paswoord.pass
 ```
-3) Maak een nieuwe kluis ùet dat paswoord  
+3) Maak een nieuwe kluis het dat paswoord  
 ```
-ansible-vault create vars/mijn_kluis2.yml --vault-password-file=vars/mijn_paswoord.pass
+ansible-vault create vars/mijn_kluis2.yml --vault-password-file=vars/mijn_sterk_paswoord.pass 
 ```
-4) Bekijk de inhoud met het super pâswoord
+4) Bekijk of aanpassen van de inhoud met het super paswoord
 ```
-ansible-vault view vars/mijn_kluis2.yml --vault-password-file=vars/mijn_paswoord.pass
+ansible-vault view vars/mijn_kluis2.yml --vault-password-file=vars/mijn_sterk_paswoord.pass
+ansible-vault edit vars/mijn_kluis2.yml --vault-password-file=vars/mijn_sterk_paswoord.pass
 ```
 6) Gebruik het paswoord bestand bij ansible playbook
 ```
-ansible-playbook -i hosts playbook2.yaml -e @vars/mijn_kluis2.yml --vault-password-file=vars/mijn_paswoord.pass
+ansible-playbook -i hosts -e @vars/mijn_kluis2.yml --vault-password-file=vars/mijn_sterk_paswoord.pass playbook.yml
 ```
