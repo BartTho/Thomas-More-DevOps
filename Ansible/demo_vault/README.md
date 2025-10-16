@@ -22,9 +22,9 @@ ansible-vault edit vars/mijn_kluis.yml
 ## Kluis gebruiken
 playbook wachtwoord ->   
 ```
-    - name: Print een geheime boodschap  
-      ansible.builtin.debug:  
-        var: mijn_geheime_boodschap  
+- name: Print een geheime boodschap  
+  ansible.builtin.debug:  
+    var: mijn_geheime_boodschap  
 ```
 hosts ->  
 ```
