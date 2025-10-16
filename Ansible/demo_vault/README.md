@@ -24,7 +24,7 @@ playbook wachtwoord ->
 ```
 - name: Print een geheime boodschap  
   ansible.builtin.debug:  
-    var: mijn_geheime_boodschap  
+    var: mijn_geheim
 ```
 hosts ->  
 ```
