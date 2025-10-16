@@ -4,6 +4,18 @@
 ```
 ansible-vault create vars/mijn_kluis.yml
 ```
+Vi of vim kent een editeer mode en een commando mode. Bij de start bevinden we ons in commando mode.
+We drukken op a (appent) om naar de editeer mode te gaan en kunnen nu onze tekst toevoegen.
+```
+mijn_paswoord: Top.Secret
+mijn_geheim: "Dit is een super geheime boodschap!!"
+```
+Na het toevoegen van de tekst gaan we terug naar commando mode door op "Esc" te drukken.
+We zijn nu terug in commando mode en geven het commando wq! 
+- w = write
+- q = quit
+- ! forceren (altijd doen)
+  
 eventueel -> 
 ```
 sudo apt install vim
