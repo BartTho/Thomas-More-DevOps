@@ -63,5 +63,7 @@ ansible-vault create vars/mijn_kluis2.yml --vault-password-file=vars/mijn_paswoo
 ```
 ansible-vault view vars/mijn_kluis2.yml --vault-password-file=vars/mijn_paswoord.pass
 ```
-6) Gebruik het paswoord bestand bij ansible playbook  
+6) Gebruik het paswoord bestand bij ansible playbook
+```
 ansible-playbook -i hosts playbook2.yaml -e @vars/mijn_kluis2.yml --vault-password-file=vars/mijn_paswoord.pass
+```
