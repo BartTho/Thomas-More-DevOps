@@ -4,6 +4,10 @@
 ```
 ansible-vault create vars/mijn_kluis.yml
 ```
+Vi installeren:
+```
+sudo apt install vim
+```
 Vi of vim kent een editeer mode en een commando mode. Bij de start bevinden we ons in commando mode.
 We drukken op a (appent) om naar de editeer mode te gaan en kunnen nu onze tekst toevoegen.
 ```
@@ -16,11 +20,6 @@ We zijn nu terug in commando mode en geven het commando wq!
 - q = quit
 - ! forceren (altijd doen)
   
-eventueel -> 
-```
-sudo apt install vim
-```
-
 Gegevens zijn onleesbaar  
 ```
 cat vars/mijn_kluis.yml
