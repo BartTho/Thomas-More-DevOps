@@ -49,7 +49,7 @@ hosts ->
 ```
 ansible-playbook -i hosts -e @vars/mijn_kluis.yml playbook2.yaml --ask-vault-pass
 ```
-## Encrypting the vault with base64 generated password
+## De kluis versleutelen met een base64 gegenereerd paswoord
 
 1) genereer willekeurig paswoord  
 ```
