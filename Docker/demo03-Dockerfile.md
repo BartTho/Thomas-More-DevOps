@@ -55,3 +55,7 @@ Je kunt images ook tijdens het bouwproces taggen door de tag na de imagenaam te 
 ```
 sudo docker build -t="barttho/demo-image:v1" .
 ```
+Images starten en verbinden:
+```
+docker run -itvd --rm --name demo barttho/demo-image:v1
+```
