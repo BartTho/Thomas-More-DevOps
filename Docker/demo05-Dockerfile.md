@@ -25,6 +25,7 @@ WORKDIR /var/www/html
 ```
 COPY index.html index.html
 COPY DevOps.png DevOps.png
+COPY styles.css styles.css
 ```
 - Kopieert index.html en DevOps.png vanuit de lokale build-context naar /var/www/html in de container.
 - Dit zijn de bestanden die NGINX zal serveren.
