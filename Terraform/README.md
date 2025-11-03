@@ -66,3 +66,9 @@ rm -f install-opentofu.sh
 ```
 
 ## 4. Gerbuik OpenTofu
+
+## Proxmox
+### Gebruiker er rol voor proxmox, token opvragen.
+pveum user add terraform@pam --password 'MotDePasseSecurisé123!'
+pveum acl modify / --user terraform@pam --role Administrator
+pveum user token add terraform@pam terraform-token --comment "Token Terraform"
