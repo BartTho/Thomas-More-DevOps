@@ -29,6 +29,7 @@ Dit is materiaal voor de lessen van DevOps Thomas More
 copyrigth Bart Thonissen @ Thomasmore
 
 🧑‍🏫 Mijn Cursus repositories
+- https://github.com/BartTho/Thomas-More-DevOps 👈 Cursus over DevOps
 - https://github.com/BartTho/MijnAICursus 👈 Cursus over AI, zelf een model maken in Python
 - https://github.com/BartTho/Les_PiCamera 👈 Cursus over Video met Raspberry Pi
 - https://github.com/BartTho/Les_OpenCV 👈 Cursus over live beelden bewerken met Raspberry Pi en OpenCV
