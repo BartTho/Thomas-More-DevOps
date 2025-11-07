@@ -1,5 +1,5 @@
 # Thomas More DevOps
-```
+´´´
 apiVersion: v02  
 kind: Human  
 metadata:  
@@ -23,6 +23,6 @@ spec:
     emoji: 🤦  
     food: 🥩  
     drink: 🥃  
-```
+´´´
 Dit is materiaal voor de lessen van DevOps Thomas More
 copyrigth Bart Thonissen @ Thomasmore
