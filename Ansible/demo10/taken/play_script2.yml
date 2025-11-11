@@ -1,4 +1,0 @@
-- name: Voer het python script uit backup.py
-  ansible.builtin.shell: 
-    cmd: python3 /home/bart/backup.sh
-  register: result

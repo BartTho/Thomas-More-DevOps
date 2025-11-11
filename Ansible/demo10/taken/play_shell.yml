@@ -1,4 +1,0 @@
-- name: Maak een backup van de home folder
-  ansible.builtin.shell:
-    cmd: /home/bart/backup.sh
-    chdir: /backup
