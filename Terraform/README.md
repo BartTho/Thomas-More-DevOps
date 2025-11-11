@@ -1,8 +1,12 @@
-Installatie van OpenTofu
-- https://opentofu.org/
-Installatie van Terraform
-- https://developer.hashicorp.com/terraform
+## Installtie OpenTofu of Terraform
 
+Installatie van OpenTofu  
+- https://opentofu.org/  
+Installatie van Terraform  
+- https://developer.hashicorp.com/terraform  
+
+### check
+tofu --version
 
 ## 1. Start het AWS Learner Lab
 
