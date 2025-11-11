@@ -1,3 +1,9 @@
+Installatie van OpenTofu
+- https://opentofu.org/
+Installatie van Terraform
+- https://developer.hashicorp.com/terraform
+
+
 ## 1. Start het AWS Learner Lab
 
 ## 2. AWS CLI installeren op Ubuntu Subsystem
