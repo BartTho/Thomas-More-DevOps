@@ -1,7 +1,7 @@
 ## Installtie OpenTofu of Terraform
-
-Installatie van OpenTofu  
-- https://opentofu.org/  
+- [ ] Installatie van OpenTofu  
+- https://opentofu.org/
+- [ ] 
 Installatie van Terraform  
 - https://developer.hashicorp.com/terraform  
 
