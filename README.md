@@ -9,12 +9,9 @@ spec:
   purpose: Help others learn DevOps  
   sponsorship: https://boeken.barttho.be/bookstack/public/shelves/devops  
   locations:  
-- type: YouTube
-- where: https://www.youtube.com/@bartthonissen7283  
-   type: Newsletter
-- where: https://thomasmore.instructure.com/  
-      type: Podcast  
-      where: https://www.youtube.com/@bartthonissen7283  
+- type: YouTube -> where: https://www.youtube.com/@bartthonissen7283  
+- type: Newsletter -> where: https://thomasmore.instructure.com/  
+- type: Podcast  -> where: https://www.youtube.com/@bartthonissen7283  
   favorites:  
     number: 1  
     animal: 🐶  
