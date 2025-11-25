@@ -1,0 +1,193 @@
+{
+  "name": "Weer",
+  "nodes": [
+    {
+      "parameters": {
+        "cityName": "Kleine-Brogel",
+        "language": "nl"
+      },
+      "type": "n8n-nodes-base.openWeatherMap",
+      "typeVersion": 1,
+      "position": [
+        16,
+        -272
+      ],
+      "id": "1aff5819-ff5b-4b75-acf6-ebe651caf76c",
+      "name": "OpenWeatherMap",
+      "credentials": {
+        "openWeatherMapApi": {
+          "id": "35mIXZRVOdHt9VV3",
+          "name": "OpenWeatherMap account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "arkLHkqoe5sSPEua",
+          "mode": "list",
+          "cachedResultName": "MijnResultaten",
+          "cachedResultUrl": "/projects/ty3wcTBALsISkukj/datatables/arkLHkqoe5sSPEua"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "minTemp": "={{ $json.main.temp_min }}",
+            "MaxTemp": "={{ $json.main.temp_max }}",
+            "Output": "={{ $json.main.temp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Output",
+              "displayName": "Output",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "minTemp",
+              "displayName": "minTemp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "MaxTemp",
+              "displayName": "MaxTemp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        224,
+        -272
+      ],
+      "id": "567af20a-afca-4efc-a0be-f9f1a4b976fc",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -224,
+        -272
+      ],
+      "id": "d486e5f5-c7b6-46bf-bf29-65ff142ecb37",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {
+    "OpenWeatherMap": [
+      {
+        "json": {
+          "coord": {
+            "lon": 5.452,
+            "lat": 51.1725
+          },
+          "weather": [
+            {
+              "id": 803,
+              "main": "Clouds",
+              "description": "half bewolkt",
+              "icon": "04d"
+            }
+          ],
+          "base": "stations",
+          "main": {
+            "temp": 5.82,
+            "feels_like": 3.43,
+            "temp_min": 5.39,
+            "temp_max": 6.08,
+            "pressure": 1007,
+            "humidity": 90,
+            "sea_level": 1007,
+            "grnd_level": 1002
+          },
+          "visibility": 7000,
+          "wind": {
+            "speed": 3.09,
+            "deg": 320
+          },
+          "clouds": {
+            "all": 75
+          },
+          "dt": 1764078024,
+          "sys": {
+            "type": 1,
+            "id": 1224,
+            "country": "NL",
+            "sunrise": 1764054691,
+            "sunset": 1764085156
+          },
+          "timezone": 3600,
+          "id": 2756252,
+          "name": "Kleine-Brogel",
+          "cod": 200
+        }
+      }
+    ]
+  },
+  "connections": {
+    "OpenWeatherMap": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "OpenWeatherMap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6fd5316c-56bc-4a30-8627-fa44c54f7cf5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "36d251bdeb47c204308c9a57981545548ffa645ce8f77db6ddecc34835ecba7e"
+  },
+  "id": "U56LBhsNJz1bSK6Q",
+  "tags": []
+}
