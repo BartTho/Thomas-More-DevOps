@@ -1,0 +1,238 @@
+{
+  "name": "Werk mijn Internet ?",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        560,
+        -144
+      ],
+      "id": "be7cb93c-687b-470d-a763-78582fa18dda",
+      "name": "When chat message received",
+      "webhookId": "c479f76b-1ef3-49df-bc00-05975a2c79e6"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        736,
+        -144
+      ],
+      "id": "9fbcef85-32ee-4507-bfcb-4ac149823f6a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        832,
+        80
+      ],
+      "id": "8b0161c0-cf00-4f82-b652-de23aebd0b0c",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        432,
+        80
+      ],
+      "id": "e1f8e487-a708-4f98-ba07-e20bf2c73645",
+      "name": "Google Gemini Chat Model"
+    },
+    {
+      "parameters": {
+        "content": "## Demo project van API en AI\nHaal een Gemini api key op. [Get Gemini API Key](https://ai.google.dev/gemini-api/docs/api-key?gclsrc=aw.ds&gad_source=1&gad_campaignid=21341690381)\n-- Klik nieuwe key\n-- Maak een project aan \"n8n\"\n-- genereer een Key \"n8n key\"",
+        "height": 512,
+        "width": 1152
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        320,
+        -288
+      ],
+      "typeVersion": 1,
+      "id": "93fc4911-4814-47b3-bba8-0b2da9020b30",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Dit is hoe je controleerd of mijn internet verbinding werkt.",
+        "command": "ping www.google.be -c 3"
+      },
+      "type": "n8n-nodes-base.executeCommandTool",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        -128
+      ],
+      "id": "3fec38ee-ac74-4fc7-98c9-8032cb6010d1",
+      "name": "Werk het internet"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Dit is hoe je controleert of mijn DNS server bereikbaar is.",
+        "command": "ping 192.168.0.1 -c 3"
+      },
+      "type": "n8n-nodes-base.executeCommandTool",
+      "typeVersion": 1,
+      "position": [
+        1168,
+        32
+      ],
+      "id": "d1697ce6-25f8-49cf-83d8-411d6033ab85",
+      "name": "Werk de naam server"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Dit is hoe je controleert of mijn router bereikbaar is.",
+        "command": "ping 192.168.4.1 -c 3"
+      },
+      "type": "n8n-nodes-base.executeCommandTool",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        80
+      ],
+      "id": "a2f11b01-4028-4208-8f22-faa92058c036",
+      "name": "Heb ik connectie met de router ?"
+    },
+    {
+      "parameters": {
+        "model": "llama3.1:8b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        608,
+        64
+      ],
+      "id": "e03b6458-2691-4e9e-b1f9-14421c1d3b98",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "WAerAlJnitw8YI5g",
+          "name": "Ollama account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "Werk het internet": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Werk de naam server": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Heb ik connectie met de router ?": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2f37e050-b181-4a35-9995-0a5994fae17e",
+  "meta": {
+    "instanceId": "36d251bdeb47c204308c9a57981545548ffa645ce8f77db6ddecc34835ecba7e"
+  },
+  "id": "UV2V3zF4FRTK1Ru8",
+  "tags": [
+    {
+      "createdAt": "2025-11-16T22:02:39.462Z",
+      "updatedAt": "2025-11-16T22:02:39.462Z",
+      "id": "FsTmHwpavlxb3Hoi",
+      "name": "AI"
+    },
+    {
+      "createdAt": "2025-11-16T22:02:39.434Z",
+      "updatedAt": "2025-11-16T22:02:39.434Z",
+      "id": "GL8c1CDGXH5eKIik",
+      "name": "Gemini"
+    },
+    {
+      "createdAt": "2025-11-16T22:02:39.485Z",
+      "updatedAt": "2025-11-16T22:02:39.485Z",
+      "id": "xLtvpBqdhyVfnXsn",
+      "name": "AI Agent"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "name": "Demo01",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -304,
+        -48
+      ],
+      "id": "769b4a58-661c-4745-8d4b-a1849a2bba3d",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-tesseractjs.tesseractNode",
+      "typeVersion": 1,
+      "position": [
+        96,
+        -48
+      ],
+      "id": "8abd5dfa-b957-4273-bdcb-ccc62bfe65ea",
+      "name": "Tesseract"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "tekst.txt",
+        "dataPropertyName": "=output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        464,
+        -48
+      ],
+      "id": "92d74cd3-9e0a-4710-8ac1-828bc8a6ad14",
+      "name": "Read/Write Files from Disk1"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "text",
+        "binaryPropertyName": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        272,
+        -48
+      ],
+      "id": "27dce1e5-e39b-4d35-9509-2fe1426606c2",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "content": "## VOORBEELD \n**Hier maak ik gebruik van een community plugin . [Link](https://www.npmjs.com/package/n8n-nodes-tesseractjs)\n- Voeg toe 2x Read/Write\n- Tesseract OCR\n- Text to File Converter (hier zonder is de text niet leesbaar of error geen obj)",
+        "height": 368,
+        "width": 1168,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -416,
+        -224
+      ],
+      "typeVersion": 1,
+      "id": "3bba3fb4-8638-45db-94dd-fd2bfa176dbb",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "url": "https://www.barttho.be/data/DevOps.png",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -112,
+        -48
+      ],
+      "id": "10b7fd5b-43ba-4ca9-89fc-ba130d2937b0",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Tesseract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tesseract": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f15380a6-81e0-460e-b281-04109989b9c5",
+  "meta": {
+    "instanceId": "36d251bdeb47c204308c9a57981545548ffa645ce8f77db6ddecc34835ecba7e"
+  },
+  "id": "WyqCEwsXFV9Zt9LQ",
+  "tags": [
+    {
+      "createdAt": "2025-11-16T21:55:53.755Z",
+      "updatedAt": "2025-11-16T21:55:53.755Z",
+      "id": "LJ2J1sXAwO63WPOY",
+      "name": "OCR"
+    }
+  ]
+}
