@@ -10,8 +10,8 @@ sudo apt install npm -y
 ### Stap 2: Controleer de installatie:
 We testen de installatie:
 ```
-node -v
-npm -v
+node --version
+npm --version
 ```
 ### Stap 3: n8n installeren
 We installeren n8n via npm
