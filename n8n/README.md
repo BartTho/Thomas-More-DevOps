@@ -41,3 +41,47 @@ Voer het commando n8n uit, Das alles.
 ```
 n8n
 ```
+
+## Docker Compose
+
+```
+version: '3.8'
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=Europe/Amsterdam
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+      - ./local_files:/files
+    networks:
+      - n8n-network
+
+  # Optioneel: PostgreSQL voor betere performance
+  postgres:
+    image: postgres:15
+    container_name: n8n-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=n8n
+      - POSTGRES_DB=n8n
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - n8n-network
+
+networks:
+  n8n-network:
+    driver: bridge
+```
