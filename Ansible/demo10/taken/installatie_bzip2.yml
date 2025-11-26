@@ -1,8 +1,0 @@
-- name: Installeer tar en bzip2 voor backup
-  ansible.builtin.package:
-    name:
-      - tar
-      - bzip2
-  become: yes
-  become_user: root
-  become_method: sudo

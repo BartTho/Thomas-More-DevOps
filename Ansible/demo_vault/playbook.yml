@@ -1,7 +1,0 @@
----
-- name: Update web servers
-  hosts: windows
-  tasks:
-  - name: Show vault variable value
-    ansible.builtin.debug:
-      var: mijn_geheim
