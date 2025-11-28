@@ -1,4 +1,4 @@
-## Installtie n8n Self-hosting
+## OPTIE 1 Installtie n8n Self-hosting installatie op de server
 ### Stap 1 : Installatie nodejs en npm
 We werken het systeem bij om ervoor te zorgen dat het de nieuwste beveiligingspatches en updates heeft.
 Zodra dit is voltooid, is uw server gereed voor de installatie van nodejs en npm.
@@ -51,12 +51,19 @@ Voer het commando n8n uit, Das alles.
 n8n
 ```
 
+## OPTIE 1 Installtie n8n Self-hosting in een docker container
+Deze optie is eenvoudiger, maar het is moeilijker om bestanden die n8n gebruikt te beheren.
 
+### Stap 1: installeer docker
+Voor de installtie verwijs ik naar de les van docker.
 
+### Stap 2: Docker Compose
+Maak een nieuw bestand met de naam "compose.yml" 
+```
+nano compose.yml
+```
 
-
-## Docker Compose
-
+Voeg onderstaande code toe aan het bestand en sla het bestand op (ctrl+o, ctrl+x)
 ```
 version: '3.8'
 
@@ -97,4 +104,9 @@ services:
 networks:
   n8n-network:
     driver: bridge
+```
+### Stap 2: Docker Compose up
+Voer het onderstaande commando uit om n8n te starten, het punt geeft aan dat het compose bestand in deze map staat:
+```
+docker compose up .
 ```
