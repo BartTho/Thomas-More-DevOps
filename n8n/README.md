@@ -44,8 +44,15 @@ sudo npm cache clean -f
 sudo npm install -g n 
 sudo n stable
 ```
-
 ### Stap 6: Starten van n8n
+Als we n8n nu zouden starten krijgen we een melding van een secure cookie. We moeten eigenlijk https gebruiken.
+Deze melding kunnen we uitschakelen door volgend comando
+
+```
+export N8N_SECURE_COOKIE=false
+```
+
+### Stap 7: Starten van n8n
 Voer het commando n8n uit, Das alles.
 ```
 n8n
@@ -64,6 +71,8 @@ nano compose.yml
 ```
 
 Voeg onderstaande code toe aan het bestand en sla het bestand op (ctrl+o, ctrl+x)
+--- Opmerking: ik heb de parameter N8N_SECURE_COOKIE=false gezet om te kunnen werken met http.
+
 ```
 version: '3.8'
 
@@ -80,7 +89,8 @@ services:
       - N8N_PROTOCOL=http
       - NODE_ENV=production
       - WEBHOOK_URL=http://localhost:5678/
-      - GENERIC_TIMEZONE=Europe/Amsterdam
+      - GENERIC_TIMEZONE=Europe/Brussels
+      - N8N_SECURE_COOKIE=false
     volumes:
       - ./n8n_data:/home/node/.n8n
       - ./local_files:/files
