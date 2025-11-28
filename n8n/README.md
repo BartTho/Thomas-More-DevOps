@@ -58,7 +58,7 @@ Voer het commando n8n uit, Das alles.
 n8n
 ```
 
-## OPTIE 1 Installtie n8n Self-hosting in een docker container
+## OPTIE 2 Installtie n8n Self-hosting in een docker container
 Deze optie is eenvoudiger, maar het is moeilijker om bestanden die n8n gebruikt te beheren.
 
 ### Stap 1: installeer docker
