@@ -13,13 +13,22 @@ We testen de installatie:
 node --version
 npm --version
 ```
-### Stap 3: n8n installeren
+
+### Stap 3: Update Nodejs naar versie >=20.19 <= 24.x
+n8n heeft een node.js versie nodig tussen 20.19 en 24. Door de standaard installatie word er een oudere versie geïnstalleerd en deze is niet compatibel met n8n. We doen een update met de volgende 3 commando's.
+```
+sudo npm cache clean -f 
+sudo npm install -g n 
+sudo n stable
+```
+
+### Stap 4: n8n installeren
 We installeren n8n via npm
 ```
 sudo npm install n8n -g
 ```
-### Stap 4: Als nodig de firewall instellen
 
+### Stap 5: Als nodig de firewall instellen
 Installeer en configureer de UFW-firewall
 Houd alleen de benodigde poorten open: SSH (22), HTTP (80), HTTPS (443).
 
@@ -36,14 +45,6 @@ Controleer de configuratie van je firewall:
 sudo ufw status verbose
 ```
 
-### Stap 5: Update Nodejs naar versie >=20.19 <= 24.x
-n8n heeft een node.js versie nodig tussen 20.19 en 24. Door de standaard installatie word er een oudere versie geïnstalleerd en deze is niet compatibel met n8n. We doen een update met de volgende 3 commando's.
-
-```
-sudo npm cache clean -f 
-sudo npm install -g n 
-sudo n stable
-```
 ### Stap 6: Starten van n8n
 Als we n8n nu zouden starten krijgen we een melding van een secure cookie. We moeten eigenlijk https gebruiken.
 Deze melding kunnen we uitschakelen door volgend comando
