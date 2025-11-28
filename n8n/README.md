@@ -70,7 +70,7 @@ Maak een nieuw bestand met de naam "compose.yml"
 nano compose.yml
 ```
 
-Voeg onderstaande code toe aan het bestand en sla het bestand op (ctrl+o, ctrl+x)
+Voeg onderstaande code toe aan het bestand en sla het bestand op (ctrl+o, ctrl+x)  
 --- Opmerking: ik heb de parameter N8N_SECURE_COOKIE=false gezet om te kunnen werken met http.
 
 ```
