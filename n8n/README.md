@@ -36,11 +36,24 @@ Controleer de configuratie van je firewall:
 sudo ufw status verbose
 ```
 
-### Stap 5: Starten van n8n
+### Stap 5: Update Nodejs naar versie >=20.19 <= 24.x
+n8n heeft een node.js versie nodig tussen 20.19 en 24. Door de standaard installatie word er een oudere versie geïnstalleerd en deze is niet compatibel met n8n. We doen een update met de volgende 3 commando's.
+
+```
+sudo npm cache clean -f 
+sudo npm install -g n 
+sudo n stable
+```
+
+### Stap 6: Starten van n8n
 Voer het commando n8n uit, Das alles.
 ```
 n8n
 ```
+
+
+
+
 
 ## Docker Compose
 
