@@ -88,7 +88,7 @@ sudo systemctl enable alloy.service
 sudo systemctl start alloy
 sudo systemctl status alloy
 ```
-### Configuratie Grafana Alloy
+### Configuratie Grafana Alloy (EVENTUEEL)
 Om Alloy op Linux te configureren, voert u de volgende stappen uit:
 Bewerk het standaardconfiguratiebestand op /etc/default/alloy
 We passen de configuratie aan dat hij een configuratie-map gebruikt i.p.v. een configuratie-bestand
