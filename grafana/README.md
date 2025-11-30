@@ -1,0 +1,105 @@
+# Installatie
+We installeren 3 componenten
+- Grafana: voor visualisatie
+- Grafana Loki: Voor het verwerken van de verzamelde data
+- Grafana Alloy: voor het verzamelen van data
+
+## Grafana
+### Installatie
+Volg de volgende stappen om Grafana te installeren vanuit de APT-repository:
+- [ ] Installeer de vereiste pakketten:
+- [ ] Importeer de GPG-sleutel:
+- [ ] Om een ​​repository voor stabiele releases toe te voegen, voert u de volgende opdracht uit:
+- [ ] Voer de volgende opdracht uit om de lijst met beschikbare pakketten bij te werken:
+- [ ] Installeert de nieuwste OSS-release:
+```
+sudo apt-get install -y apt-transport-https software-properties-common wget
+
+sudo mkdir -p /etc/apt/keyrings/
+wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
+
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+sudo apt-get update
+sudo apt-get install grafana
+```
+### Starten
+Dit onderwerp bevat instructies voor het starten van de Grafana-server. Voor bepaalde configuratiewijzigingen moet u de Grafana-server mogelijk opnieuw opstarten om ze van kracht te laten worden.
+De volgende instructies starten het grafana-serverproces als de grafana-gebruiker, die is aangemaakt tijdens de installatie van het pakket.
+We kunnen de server starten met systemctl.
+- [ ] We configureren Grafana-server zo dat deze bij het opstarten wordt gestart
+- [ ] We starten de service
+- [ ] We controleren of de service actief is
+```
+sudo systemctl enable grafana-server.service
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
+```
+### Configuratie
+We hebben Grafana geïnstalleerd met behulp van apt, dan is het configuratiebestand /etc/grafana/grafana.ini
+```
+sudo nano /etc/grafana/grafana.ini
+```
+## Grafana Loki lokaal installeren
+### Installatie
+We gebruiken apt om de installatie te doen
+```
+sudo apt update
+sudo apt install loki promtail
+```
+
+## Alloy
+### Installatie
+We controleren of gpg geïnstalleerd is.
+```
+sudo apt install gpg
+```
+Om Alloy op Linux te installeren, voert u de volgende opdrachten uit in een terminalvenster.
+- [ ] Import the GPG key and add the Grafana package repository.
+- [ ] Werk de opslagplaatsen bij.
+- [ ] Installeer Alloy.
+```
+sudo mkdir -p /etc/apt/keyrings/
+wget -q -O - https://apt.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/grafana.gpg > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+
+sudo apt-get update
+sudo apt-get install alloy
+```
+
+
+
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
