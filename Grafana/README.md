@@ -39,6 +39,12 @@ We hebben Grafana geïnstalleerd met behulp van apt, dan is het configuratiebest
 ```
 sudo nano /etc/grafana/grafana.ini
 ```
+### Eerste login Grafana
+- surf naar IP-Server:3000
+- Gebruiker: admin
+- Paswoord: admin
+Weizig het passwoord.
+
 ## Grafana Loki lokaal installeren
 ### Installatie Grafana Loki
 We gebruiken apt om de installatie te doen
