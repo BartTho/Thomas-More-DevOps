@@ -5,7 +5,7 @@ We installeren 3 componenten
 - Grafana Alloy: voor het verzamelen van data
 
 ## Grafana
-### Installatie
+### Installatie Grafana
 Volg de volgende stappen om Grafana te installeren vanuit de APT-repository:
 - [ ] Installeer de vereiste pakketten:
 - [ ] Importeer de GPG-sleutel:
@@ -22,7 +22,7 @@ echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stab
 sudo apt-get update
 sudo apt-get install grafana
 ```
-### Starten
+### Starten Grafana
 Dit onderwerp bevat instructies voor het starten van de Grafana-server. Voor bepaalde configuratiewijzigingen moet u de Grafana-server mogelijk opnieuw opstarten om ze van kracht te laten worden.
 De volgende instructies starten het grafana-serverproces als de grafana-gebruiker, die is aangemaakt tijdens de installatie van het pakket.
 We kunnen de server starten met systemctl.
@@ -34,21 +34,21 @@ sudo systemctl enable grafana-server.service
 sudo systemctl start grafana-server
 sudo systemctl status grafana-server
 ```
-### Configuratie
+### Configuratie Grafana
 We hebben Grafana geïnstalleerd met behulp van apt, dan is het configuratiebestand /etc/grafana/grafana.ini
 ```
 sudo nano /etc/grafana/grafana.ini
 ```
 ## Grafana Loki lokaal installeren
-### Installatie
+### Installatie Grafana Loki
 We gebruiken apt om de installatie te doen
 ```
 sudo apt update
 sudo apt install loki promtail
 ```
 
-## Alloy
-### Installatie
+## Grafana Alloy
+### Installatie Grafana Alloy
 We controleren of gpg geïnstalleerd is.
 ```
 sudo apt install gpg
@@ -65,41 +65,34 @@ echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stab
 sudo apt-get update
 sudo apt-get install alloy
 ```
+### Starten Grafana Alloy
+Dit onderwerp bevat instructies voor het starten van de Grafana Alloy. 
+We kunnen de server starten met systemctl.
+- [ ] We configureren Grafana Alloy zo dat deze bij het opstarten wordt gestart
+- [ ] We starten de service
+- [ ] We controleren of de service actief is
+```
+sudo systemctl enable alloy.service
+sudo systemctl start alloy
+sudo systemctl status alloy
+```
+### Configuratie Grafana Alloy
+Om Alloy op Linux te configureren, voert u de volgende stappen uit:
+Bewerk het standaardconfiguratiebestand op /etc/default/alloy
+We passen de configuratie aan dat hij een configuratie-map gebruikt i.p.v. een configuratie-bestand
+```
+CONFIG_FILE="/etc/alloy"
+CUSTOM_ARGS=""
+RESTART_ON_UPGRADE=true
+```
+op dit toetepassen herstarten we de service
+```
+sudo systemctl restart alloy
+```
+Bekijk de voorbeeld configuratie bestanden in deze folder van github.
 
+# Documentatie over Alloy, Loki en Grafana
+- Algemene Site: https://grafana.com/
+- Grafana Alloy Configuration blocks : https://grafana.com/docs/alloy/latest/reference/config-blocks/ https://grafana.com/docs/alloy/latest/reference/config-blocks/
+- Grafana loki components: https://grafana.com/docs/alloy/latest/reference/components/loki/
 
-
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
