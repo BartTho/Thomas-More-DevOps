@@ -52,6 +52,12 @@ We gebruiken apt om de installatie te doen
 sudo apt update
 sudo apt install loki promtail
 ```
+### Starten Grafana
+```
+sudo systemctl enable loki
+sudo systemctl start loki
+sudo systemctl status loki
+```
 
 ## Grafana Alloy
 ### Installatie Grafana Alloy
