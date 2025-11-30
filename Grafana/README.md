@@ -107,4 +107,5 @@ Bekijk de voorbeeld configuratie bestanden in deze folder van github.
 - Algemene Site: https://grafana.com/
 - Grafana Alloy Configuration blocks : https://grafana.com/docs/alloy/latest/reference/config-blocks/ https://grafana.com/docs/alloy/latest/reference/config-blocks/
 - Grafana loki components: https://grafana.com/docs/alloy/latest/reference/components/loki/
+- Github: https://github.com/grafana/alloy-scenarios/
 
