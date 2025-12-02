@@ -216,4 +216,5 @@ Wijzig het passwoord.
 https://grafana.com/grafana/dashboards/1860-node-exporter-full/
 https://www.thedutchlab.com/inzichten
 https://uptrace.dev/tools/prometheus-for-docker
+https://prometheus.io/docs/prometheus/latest/querying/examples/
 
