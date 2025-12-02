@@ -151,7 +151,7 @@ WantedBy=multi-user.target
 ```
 Druk op Ctrl+o om het bestand op te slaan en op Ctrl+x om het bestand te sluiten.
 
-## Prometheuse service activeren en starten 
+## Prometheus-service activeren en starten 
 - [ ] Herlaadt u systemd met de volgende opdracht:
 - [ ] Start de Prometheus-service
 - [ ] Schakel de Prometheus-service in bij het opstarten van het systeem
@@ -170,8 +170,7 @@ Probeer vervolgens de Prometheus-webinterface te openen. Open een webbrowser en 
 
 http://ip-address:9090
 
-# Installatie Grafana
-## Installeren via apt
+# Installatie Grafana via apt
 Volg de volgende stappen om Grafana te installeren vanuit de APT-repository:
 - [ ] Installeer de vereiste pakketten
 - [ ] Importeer de GPG-sleutel
@@ -288,44 +287,35 @@ Uitleg van de configuratie van Node Exporter
 
 ### Volumes:
 
-/proc:/host/proc:ro: 
+- [ ] /proc:/host/proc:ro: 
 Koppelt de /proc-map van de host als alleen-lezen voor metrische gegevens zoals CPU en processen.
-
-/sys:/host/sys:ro: 
+- [ ] /sys:/host/sys:ro: 
 Koppelt de /sys-map van de host als alleen-lezen voor systeemmetrische gegevens zoals hardwaregegevens.
-
-/:/rootfs:ro: 
+- [ ] /:/rootfs:ro: 
 Koppelt het rootbestandssysteem van de host als alleen-lezen voor bestandssysteemmetrische gegevens.
 
 ### Opdrachtvlaggen:
 
---path.procfs=/host/proc: 
+- [ ] --path.procfs=/host/proc: 
 Geeft Node Exporter opdracht om /proc-metrische gegevens van de host te lezen.
-
---path.rootfs=/rootfs: 
+- [ ] --path.rootfs=/rootfs: 
 Verwijst naar het rootbestandssysteem van de host voor nauwkeurige gegevens over schijfgebruik.
-
---path.sysfs=/host/sys: 
+- [ ] --path.sysfs=/host/sys: 
 Verwijst naar /sys voor systeemmetrische gegevens zoals apparaatgegevens.
-
---collector.filesystem.mount-points-exclude=...: 
+- [ ] --collector.filesystem.mount-points-exclude=...: 
 Sluit specifieke paden (bijv. /sys, /proc) uit van bewaking om irrelevante metrische gegevens te vermijden.
 
 ### Uitleg van de Prometheus-configuratie
 ### Opdrachtvlaggen:
---config.file=/etc/prometheus/prometheus.yml: 
+- [ ] --config.file=/etc/prometheus/prometheus.yml: 
 Specificeert het Prometheus-configuratiebestand.
-
---storage.tsdb.path=/prometheus: 
+- [ ] --storage.tsdb.path=/prometheus: 
 Stelt de map in waar tijdreeksgegevens worden opgeslagen.
-
---web.console.libraries=/etc/prometheus/console_libraries: 
+- [ ] --web.console.libraries=/etc/prometheus/console_libraries: 
 Verwijst naar de map voor de Prometheus-webconsolebibliotheken.
-
---web.console.templates=/etc/prometheus/consoles: 
+- [ ] --web.console.templates=/etc/prometheus/consoles: 
 Verwijst naar de map met consolesjablonen.
-
---web.enable-lifecycle: 
+- [ ] --web.enable-lifecycle: 
 Schakelt levenscyclusbeheer in, waardoor herladen of afsluiten via de HTTP API mogelijk is.
 
 ### Prometheus configureren
