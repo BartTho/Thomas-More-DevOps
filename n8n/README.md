@@ -52,6 +52,7 @@ Deze melding kunnen we uitschakelen door volgend comando
 ```
 export N8N_SECURE_COOKIE=false
 ```
+Zet dit in het bestand .bashrc
 
 ### Stap 7: Starten van n8n
 Voer het commando n8n uit, Das alles.
