@@ -213,6 +213,7 @@ Wijzig het passwoord.
 - Dashbord : 1860 - https://grafana.com/grafana/dashboards/1860-node-exporter-full
   
 # Links
+https://prometheus.io/download/#node_exporter  
 https://grafana.com/grafana/dashboards/1860-node-exporter-full/  
 https://www.thedutchlab.com/inzichten  
 https://uptrace.dev/tools/prometheus-for-docker  
