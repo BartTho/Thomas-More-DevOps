@@ -68,7 +68,7 @@ sudo systemctl enable node_exporter.service
 ```
 ## Node Exporter controleren
 Wanneer de service actief is kan je controleren of hij toegankelijk is door de url van de host te checken op, 
-in dit geval, poort 9100. http://[IP-DevOps-Server]:9100
+in dit geval, poort 9100. http://IP-DevOps-Server:9100
 
 # Installatie Prometheus
 Zodra aan al deze vereisten is voldaan, is uw systeem klaar om Prometheus te installeren.
