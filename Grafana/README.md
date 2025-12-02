@@ -1,4 +1,7 @@
 # Inleiding
+
+Node Exporter is een open-sourcetool die is ontworpen om hardware- en besturingssysteemstatistieken van een hostsysteem beschikbaar te stellen in een formaat dat Prometheus kan scrapen. Het is een lichtgewicht agent die draait op het systeem dat je wilt monitoren en gedetailleerde statistieken op systeemniveau verzamelt, zoals CPU-gebruik, geheugengebruik, schijf-I/O, netwerkstatistieken en meer.
+
 We installeren 3 componenten
 - Grafana: voor visualisatie
 - Prometheus: Voor het verwerken van de verzamelde data
@@ -218,3 +221,145 @@ https://grafana.com/grafana/dashboards/1860-node-exporter-full/
 https://www.thedutchlab.com/inzichten  
 https://uptrace.dev/tools/prometheus-for-docker  
 https://prometheus.io/docs/prometheus/latest/querying/examples/  
+
+# Een andere optie is installetie met docker-compose
+
+## Maak een docker-compose.yml-bestand
+Maak een docker-compose.yml-bestand met de volgende inhoud:
+```
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  prometheus_data: {}
+  grafana-data: {}
+
+services:
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    ports:
+      - "9100:9100"
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - monitoring
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+```
+
+In het bovenstaande docker-compose-bestand noemen we drie verschillende services: Grafana, Prometheus en Node Exporter. We hebben de netwerkmonitoring gedefinieerd, zelfs als u Docker Create Network niet voor u heeft genoemd.
+
+Uitleg van de configuratie van Node Exporter
+
+### Volumes:
+
+/proc:/host/proc:ro: 
+Koppelt de /proc-map van de host als alleen-lezen voor metrische gegevens zoals CPU en processen.
+
+/sys:/host/sys:ro: 
+Koppelt de /sys-map van de host als alleen-lezen voor systeemmetrische gegevens zoals hardwaregegevens.
+
+/:/rootfs:ro: 
+Koppelt het rootbestandssysteem van de host als alleen-lezen voor bestandssysteemmetrische gegevens.
+
+### Opdrachtvlaggen:
+
+--path.procfs=/host/proc: 
+Geeft Node Exporter opdracht om /proc-metrische gegevens van de host te lezen.
+
+--path.rootfs=/rootfs: 
+Verwijst naar het rootbestandssysteem van de host voor nauwkeurige gegevens over schijfgebruik.
+
+--path.sysfs=/host/sys: 
+Verwijst naar /sys voor systeemmetrische gegevens zoals apparaatgegevens.
+
+--collector.filesystem.mount-points-exclude=...: 
+Sluit specifieke paden (bijv. /sys, /proc) uit van bewaking om irrelevante metrische gegevens te vermijden.
+
+### Uitleg van de Prometheus-configuratie
+### Opdrachtvlaggen:
+--config.file=/etc/prometheus/prometheus.yml: 
+Specificeert het Prometheus-configuratiebestand.
+
+--storage.tsdb.path=/prometheus: 
+Stelt de map in waar tijdreeksgegevens worden opgeslagen.
+
+--web.console.libraries=/etc/prometheus/console_libraries: 
+Verwijst naar de map voor de Prometheus-webconsolebibliotheken.
+
+--web.console.templates=/etc/prometheus/consoles: 
+Verwijst naar de map met consolesjablonen.
+
+--web.enable-lifecycle: 
+Schakelt levenscyclusbeheer in, waardoor herladen of afsluiten via de HTTP API mogelijk is.
+
+### Prometheus configureren
+Maak een prometheus.yml-bestand in dezelfde map met de volgende inhoud:
+```
+global:
+  scrape_interval: 10s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "node-exporter"
+    static_configs:
+      - targets: ["node-exporter:9100"]
+```
+
+Stap 3: Start de containers
+Voer de volgende opdracht uit om de installatie te starten:
+```
+docker-compose up -d
+```
+
+### Toegang tot de services
+Prometheus: Open http://localhost:9090.
+Controleer het tabblad 'Doelen' om ervoor te zorgen dat Prometheus de Node Exporter-statistieken scrapt.
+Druk op Enter of klik om de afbeelding op volledig formaat te bekijken
+
+Grafana: Open http://localhost:3000.
+
+Standaardgegevens:
+Gebruikersnaam: admin
+Wachtwoord: admin
+Druk op Enter of klik om de afbeelding op volledig formaat te bekijken
+
