@@ -121,3 +121,8 @@ Voer het onderstaande commando uit om n8n te starten, het punt geeft aan dat het
 ```
 docker compose up .
 ```
+
+# Links
+- Google AI Studio: https://aistudio.google.com
+- OpenWeathermap: https://openweathermap.org/price
+- n8n ocr: https://www.npmjs.com/search?q=keywords%3An8n-community-node-package
