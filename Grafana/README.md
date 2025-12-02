@@ -224,8 +224,7 @@ https://prometheus.io/docs/prometheus/latest/querying/examples/
 
 # Een andere optie is installetie met docker-compose
 
-## Maak een docker-compose.yml-bestand
-Maak een docker-compose.yml-bestand met de volgende inhoud:
+## Maak een docker-compose.yml-bestand met de volgende inhoud:
 ```
 networks:
   monitoring:
@@ -345,21 +344,22 @@ scrape_configs:
       - targets: ["node-exporter:9100"]
 ```
 
-Stap 3: Start de containers
+### Start de containers
 Voer de volgende opdracht uit om de installatie te starten:
 ```
 docker-compose up -d
 ```
 
 ### Toegang tot de services
+
 Prometheus: Open http://localhost:9090.
+
 Controleer het tabblad 'Doelen' om ervoor te zorgen dat Prometheus de Node Exporter-statistieken scrapt.
 Druk op Enter of klik om de afbeelding op volledig formaat te bekijken
 
 Grafana: Open http://localhost:3000.
 
 Standaardgegevens:
-Gebruikersnaam: admin
-Wachtwoord: admin
-Druk op Enter of klik om de afbeelding op volledig formaat te bekijken
+- Gebruikersnaam: admin
+- Wachtwoord: admin
 
