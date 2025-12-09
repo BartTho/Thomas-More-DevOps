@@ -65,9 +65,9 @@ Geef het de juiste rechten en start vervolgens de service, check of hij werkt en
 ```
 sudo chmod 664 /usr/lib/systemd/system/node_exporter.service
 sudo systemctl daemon-reload
-sudo systemctl status node_exporter
 sudo systemctl enable node_exporter.service
 sudo systemctl start node_exporter
+sudo systemctl status node_exporter
 ```
 ## Node Exporter controleren
 Wanneer de service actief is kan je controleren of hij toegankelijk is door de url van de host te checken op, 
