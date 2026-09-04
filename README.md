@@ -28,3 +28,6 @@ copyrigth Bart Thonissen @ Thomasmore
 - https://github.com/BartTho/Les_PiCamera 👈 Cursus over Video met Raspberry Pi
 - https://github.com/BartTho/Les_OpenCV 👈 Cursus over live beelden bewerken met Raspberry Pi en OpenCV
 - https://github.com/BartTho/Rocky-Linux 👈 Documenten voor het labo van Rocky Linux
+  
+🧑‍🏫 Aan te raden / Extra's
+- https://github.com/ChristianLempa/boilerplates-library.git 👈 Templates voor Ansible, Dockercompose ...
