@@ -45,14 +45,14 @@ Debian/Ubuntu:
 ### Nade installatie passen we het configuratiebestand /etc/ansible/hosts aan.
 
 BESTAND /etc/ansible/hosts
-``` 
+```sh
   [groen]  
   IP SERVER 1  
   IP SERVER 2  
   
   [blauw]  
   IP SERVER 3  
-  
+
   [all:vars]  
   ansible_connection=ssh  
   ansible_user=ansible  
@@ -75,6 +75,27 @@ Wanneer er een waarschuwing verschijnt met betrekking tot Python, kan dit worden
     ansible_python_interpreter=/usr/bin/python3  
 ``` 
 ### Als je admin rechten nodig hebt in een ansible script. 
+
+Ansible become werkt niet op Ubuntu 26.04: timeout op de sudo-prompt
+
+Bij het uitvoeren van de Ansible-oefeningen met become (bv. demo02, het aanmaken van een groep en gebruiker) loop je vast op deze fout:
+**Task failed: Timeout (12s) waiting for privilege escalation prompt**
+
+>[!info] Oorzaak:
+> "Ubuntu 26.04" en nieuwere daar is sudo-rs standaard in plaats van de klassieke sudo ('sudo --version' geeft 'sudo-rs 0.2.13').
+> sudo-rs toont een andere wachtwoordprompt ('[sudo: authenticate] Password:'), die Ansible niet herkent.
+Oplossing:
+Ansible de klassieke sudo laten gebruiken door in de inventory onder [all:vars] deze regel toe te voegen:
+[all:vars]
+ansible_connection=ssh
+ansible_user=ansible
+ansible_become_exe=sudo.ws
+ansible_sudo_pass=Top.Secret
+pasword_jefke=Top.Secret
+(Of met: ansible-playbook Playbook.yml -e ansible_become_exe=sudo.ws)
+Daarna liep de playbook zonder problemen (ok=2, changed=2).
+Als je een mixed omgeving hebt met Ubuntu's 26 en ook oudere of met RedHat of RockyLinux dan kan je het probleem als volgt oplossen:
+
 
 Aanpassen : /etc/ansible/hosts  
 ``` 
