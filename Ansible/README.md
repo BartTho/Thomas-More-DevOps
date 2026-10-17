@@ -81,7 +81,7 @@ Ansible become werkt niet op Ubuntu 26.04: timeout op de sudo-prompt
 Bij het uitvoeren van de Ansible-oefeningen met become (bv. demo02, het aanmaken van een groep en gebruiker) loop je vast op deze fout:
 **Task failed: Timeout (12s) waiting for privilege escalation prompt**
 
->[!info] Oorzaak:
+>[info] Oorzaak:
 > "Ubuntu 26.04" en nieuwere daar is sudo-rs standaard in plaats van de klassieke sudo ('sudo --version' geeft 'sudo-rs 0.2.13').
 > sudo-rs toont een andere wachtwoordprompt ('[sudo: authenticate] Password:'), die Ansible niet herkent.
 Oplossing:
