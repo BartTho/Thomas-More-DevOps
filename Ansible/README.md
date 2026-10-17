@@ -100,12 +100,12 @@ Bij het uitvoeren van de Ansible-oefeningen met become (bv. demo02, het aanmaken
 > **Oplossing:**  
 > Ansible de klassieke sudo laten gebruiken door in de inventory onder [all:vars] deze regel toe te voegen:
 > ```
-> [all:vars]
-     ansible_connection=ssh  
-     ansible_user=ansible  
-     **ansible_become_exe=sudo.ws**  
-     ansible_sudo_pass=Top.Secret  
-     pasword_jefke=Top.Secret  
+>    [all:vars]
+>     ansible_connection=ssh  
+>     ansible_user=ansible  
+>     **ansible_become_exe=sudo.ws**  
+>     ansible_sudo_pass=Top.Secret  
+>     pasword_jefke=Top.Secret  
 >```
 (Of met: ansible-playbook Playbook.yml -e ansible_become_exe=sudo.ws)  
 
